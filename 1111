@@ -77,7 +77,6 @@ end
     end
 end
 if isNotSupport() then game.Players.LocalPlayer:Kick("⚠️ Detect "..__f['__executor']..", This executor not support please change to highest level executor. ⚠️") end;]]
-getgenv().script_key = NAGI or nil
 getgenv().disable_auto_exec = disable_auto_exec or false
 
 getgenv().auto_rejoin = auto_rejoin or false
@@ -241,11 +240,7 @@ if not(getgenv().run_time) then
         xpcall(function()
             local queueonteleport = queueonteleport or queue_on_teleport or (syn and syn.queue_on_teleport) or (fluxus and fluxus.queue_on_teleport)
             if queueonteleport and not(aimbot or fruits_finder or arise_afk) then
-                if script_key then
-                    queueonteleport('getgenv().cometeleport=true;script_key="'..script_key..'";premium='..tostring(premium)..';loadstring(game:HttpGet("https://raw.githubusercontent.com/x2neptunereal/Alchemy/main/gateway.lua"))()')
-                else
                     queueonteleport('getgenv().cometeleport=true;premium='..tostring(premium)..';loadstring(game:HttpGet("https://raw.githubusercontent.com/x2neptunereal/Alchemy/main/gateway.lua"))()')
-                end
             end
         end, function(err : string)
             warn("Auto execute function error "..err)
@@ -257,5 +252,3 @@ if not(getgenv().run_time) then
     elseif fruits_finder then __f['__load']("https://api.luarmor.net/files/v3/loaders/56e77f1d98c461e2b8f24647b42095b4.lua")
     elseif arise_afk then __f['__load']("https://api.luarmor.net/files/v3/loaders/a80497a34c31326d7dfb5d734af4ae33.lua")
     elseif premium then tar = __f['__premium'](); __f['__load']("https://api.luarmor.net/files/"..tar) 
-    else getgenv().loader = __f['__game'](); __f['__load']("https://raw.githubusercontent.com/x2neptunereal/Alchemy/main/keysystem/1.lua") end;
-end
